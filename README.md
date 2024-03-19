@@ -1,4 +1,4 @@
-# Lista de Tarefas usando React e CRUD
+# Projeto: Lista de Tarefas com CRUD em React
 
 Este é um projeto simples de Lista de Tarefas desenvolvido em React, permitindo aos usuários criar, ler, atualizar e excluir tarefas. Ele oferece uma interface intuitiva para gerenciar suas tarefas diárias de maneira eficiente.
 
