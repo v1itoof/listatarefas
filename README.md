@@ -28,9 +28,8 @@ Este é um projeto simples de Lista de Tarefas desenvolvido em React, permitindo
 
 - **src**: Este diretório contém os componentes React.
   - **components**: Componentes específicos da aplicação.
-    - `TaskList.js`: Componente para exibir a lista de tarefas.
-    - `TaskItem.js`: Componente para representar uma única tarefa.
-    - `TaskForm.js`: Componente para adicionar ou editar uma tarefa.
+    - `Main.js`: Componente para exibir a lista de tarefas.
+    - `Main.css`: Componente para editar e estilizar a lista de tarefas.
   - `App.js`: Componente principal da aplicação.
   - `index.js`: Ponto de entrada da aplicação React.
 
