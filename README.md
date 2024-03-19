@@ -23,23 +23,19 @@ Este é um projeto simples de Lista de Tarefas desenvolvido em React, permitindo
 
 ## Estrutura do Projeto
 
-.
-├── public
-│ └── index.html
-├── src
-│ ├── components
-│ │ ├── Main.js
-│ │ └── Main.css
-│ ├── App.js
-│ └── index.js
-├── README.md
-└── package.json
-
 - **public**: Contém o arquivo HTML principal.
+  - `index.html`: Arquivo HTML principal da aplicação.
+
 - **src**: Este diretório contém os componentes React.
   - **components**: Componentes específicos da aplicação.
-  - **App.js**: Componente principal da aplicação.
-  - **index.js**: Ponto de entrada da aplicação React.
+    - `TaskList.js`: Componente para exibir a lista de tarefas.
+    - `TaskItem.js`: Componente para representar uma única tarefa.
+    - `TaskForm.js`: Componente para adicionar ou editar uma tarefa.
+  - `App.js`: Componente principal da aplicação.
+  - `index.js`: Ponto de entrada da aplicação React.
+
+- **README.md**: Este arquivo que você está lendo.
+- **package.json**: Arquivo de configuração do npm com as dependências do projeto.
 
 ## Contribuindo
 
