@@ -10,9 +10,25 @@ export default class Main extends Component {
     tarefas: [],
   };
 
+  componentDidMount() {
+    const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+
+    if (!tarefas) return;
+
+    this.setState({ tarefas });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { tarefas } = this.state;
+
+    if (tarefas === prevState.tarefas) return;
+
+    localStorage.setItem('tarefas', JSON.stringify(tarefas));
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    const { tarefas } = this.state;
+    const { tarefas, index } = this.state;
     let { novaTarefa } = this.state;
     novaTarefa = novaTarefa.trim();
 
@@ -20,14 +36,41 @@ export default class Main extends Component {
 
     const novaTarefas = [...tarefas];
 
-    this.setState({
-      tarefas: [...novaTarefas, novaTarefa],
-    });
+    if (index === -1) {
+      this.setState({
+        tarefas: [...novaTarefas, novaTarefa],
+      });
+    } else {
+      novaTarefas[index] = novaTarefa;
+
+      this.setState({
+        tarefas: [...novaTarefas],
+        index: -1,
+      });
+    }
   };
 
   handleChange = (e) => {
     this.setState({
       novaTarefa: e.target.value,
+    });
+  };
+
+  handleEdit = (e, index) => {
+    const { tarefas } = this.state;
+
+    this.setState({
+      index,
+      novaTarefa: tarefas[index],
+    });
+  };
+
+  handleDelete = (e, index) => {
+    const { tarefas } = this.state;
+    tarefas.splice(index, 1);
+
+    this.setState({
+      tarefas,
     });
   };
 
@@ -50,12 +93,18 @@ export default class Main extends Component {
         </form>
 
         <ul className="tarefas">
-          {tarefas.map((tarefa) => (
+          {tarefas.map((tarefa, index) => (
             <li key={tarefa}>
               {tarefa}
               <span>
-                <FaEdit className="edit" />
-                <FaTrash className="delete" />
+                <FaEdit
+                  onClick={(e) => this.handleEdit(e, index)}
+                  className="edit"
+                />
+                <FaTrash
+                  className="delete"
+                  onClick={(e) => this.handleDelete(e, index)}
+                />
               </span>
             </li>
           ))}
